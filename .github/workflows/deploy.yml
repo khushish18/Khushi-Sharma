@@ -39,7 +39,9 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_BASE_PATH: /Khushi-Sharma
-        run: npm run build
+        run: |
+          npm run build
+          touch ./out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

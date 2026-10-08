@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import Image from "next/image";
+import { getAssetPath } from "@/utils/basePath";
 import {
   PageContainer,
   SectionLabel,
@@ -129,7 +130,7 @@ export default function ExperiencePage() {
               <div className="lg:col-span-5">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#E6E1D7] bg-[#F4F1EA] shadow-xs group">
                   <Image
-                    src="/images/drdo_sspl.png"
+                    src={getAssetPath("/images/drdo_sspl.png")}
                     alt="DRDO Solid State Physics Laboratory Research Workstation Environment"
                     fill
                     sizes="(max-width: 1024px) 100vw, 450px"

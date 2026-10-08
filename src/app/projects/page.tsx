@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/utils/basePath";
 import {
   PageContainer,
   SectionLabel,
@@ -220,7 +221,7 @@ export default function ProjectsPage() {
                         } group shadow-xs`}
                       >
                         <Image
-                          src={project.image}
+                          src={getAssetPath(project.image)}
                           alt={`${project.title} Visual Representation — ${project.visualDescription}`}
                           fill
                           sizes="(max-width: 1024px) 100vw, 450px"

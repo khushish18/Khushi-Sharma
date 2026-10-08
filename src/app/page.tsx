@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/utils/basePath";
 import {
   PageContainer,
   SectionHeading,
@@ -85,7 +86,7 @@ export default function HomePage() {
                 {/* Main Photograph Frame */}
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-[#E6E1D7] bg-[#F4F1EA] shadow-md">
                   <Image
-                    src="/images/khushi.jpg"
+                    src={getAssetPath("/images/khushi.jpg")}
                     alt="Khushi Sharma - Software Developer"
                     fill
                     priority
