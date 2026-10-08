@@ -41,7 +41,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /Khushi-Sharma
         run: |
           npm run build
-          touch ./out/.nojekyll
+          node scripts/fix-gh-pages.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
