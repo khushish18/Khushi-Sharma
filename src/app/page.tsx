@@ -1,69 +1,215 @@
+import React from "react";
 import Image from "next/image";
+import {
+  PageContainer,
+  SectionHeading,
+  Button,
+} from "@/components";
+import {
+  GraduationCap,
+  Code2,
+  FolderGit2,
+  Award,
+} from "lucide-react";
 
-export default function Home() {
+const technologyCategories = [
+  {
+    category: "Languages",
+    items: ["JavaScript", "TypeScript", "Python", "C++"],
+  },
+  {
+    category: "Frontend & Mobile",
+    items: ["React.js", "Next.js", "React Native", "HTML/CSS", "Tailwind CSS"],
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "Express.js"],
+  },
+  {
+    category: "Databases",
+    items: ["MongoDB", "Firebase"],
+  },
+  {
+    category: "Tools & Platforms",
+    items: ["Git", "GitHub", "Postman", "Vercel"],
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="py-8 sm:py-12 md:py-16 space-y-20 sm:space-y-28">
+      {/* Editorial Hero Section */}
+      <section className="relative overflow-hidden">
+        <PageContainer>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left Column: Hero Text */}
+            <div className="lg:col-span-7 flex flex-col items-start">
+              {/* Top Uppercase Label with Thin Muted Teal Line */}
+              <div className="inline-flex items-center gap-3 mb-6">
+                <span className="w-8 h-[1.5px] bg-[#234E46]" />
+                <span className="text-xs uppercase tracking-widest font-semibold text-[#234E46]">
+                  SOFTWARE DEVELOPER
+                </span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#19221E] leading-[1.12] mb-6">
+                Hi, I'm <span className="text-[#234E46] italic">Khushi Sharma</span>
+              </h1>
+
+              {/* Supporting Paragraph */}
+              <p className="text-base sm:text-lg text-[#576560] leading-relaxed max-w-xl font-normal mb-8">
+                I build AI-powered and full-stack software solutions with a focus on real-world applications in healthcare, intelligent systems and everyday life. Currently exploring full-stack and mobile development while learning and building one project at a time.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4">
+                <Button href="/projects" variant="primary" size="lg" icon="arrow">
+                  View My Work
+                </Button>
+                <Button
+                  href="https://github.com/khushish18"
+                  external
+                  variant="outline"
+                  size="lg"
+                  icon="external"
+                >
+                  GitHub
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Column: Clean Editorial Photograph Container */}
+            <div className="lg:col-span-5 relative mt-4 lg:mt-0 flex justify-center">
+              <div className="relative w-full max-w-md">
+                {/* Main Photograph Frame */}
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-[#E6E1D7] bg-[#F4F1EA] shadow-md">
+                  <Image
+                    src="/images/khushi.jpg"
+                    alt="Khushi Sharma - Software Developer"
+                    fill
+                    priority
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </PageContainer>
+      </section>
+
+      {/* Home Statistics Card */}
+      <section>
+        <PageContainer>
+          <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 md:p-10 border border-[#E6E1D7] shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-[#E6E1D7]">
+              {/* Stat 1: CGPA */}
+              <div className="flex flex-col justify-between pt-4 sm:pt-0 sm:px-4 first:pt-0 first:px-0">
+                <div className="p-3 rounded-xl bg-[#EFF3EC] text-[#234E46] border border-[#D8E0D5] w-fit mb-4">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-serif text-3xl sm:text-4xl font-medium text-[#234E46] mb-1">
+                    9.412
+                  </div>
+                  <div className="text-sm font-semibold text-[#19221E]">CGPA</div>
+                  <p className="text-xs text-[#576560] mt-1 leading-relaxed">
+                    B.Tech @ VIPS-TC
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat 2: DSA Problems */}
+              <div className="flex flex-col justify-between pt-6 sm:pt-0 sm:px-4">
+                <div className="p-3 rounded-xl bg-[#EFF3EC] text-[#234E46] border border-[#D8E0D5] w-fit mb-4">
+                  <Code2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-serif text-3xl sm:text-4xl font-medium text-[#234E46] mb-1">
+                    120+
+                  </div>
+                  <div className="text-sm font-semibold text-[#19221E]">
+                    DSA Problems
+                  </div>
+                  <p className="text-xs text-[#576560] mt-1 leading-relaxed">
+                    Solved on LeetCode
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat 3: Major Projects */}
+              <div className="flex flex-col justify-between pt-6 sm:pt-0 sm:px-4">
+                <div className="p-3 rounded-xl bg-[#EFF3EC] text-[#234E46] border border-[#D8E0D5] w-fit mb-4">
+                  <FolderGit2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-serif text-3xl sm:text-4xl font-medium text-[#234E46] mb-1">
+                    4
+                  </div>
+                  <div className="text-sm font-semibold text-[#19221E]">
+                    Major Projects
+                  </div>
+                  <p className="text-xs text-[#576560] mt-1 leading-relaxed">
+                    Sahayak, HerVeda, SafeOpen, Budget Eagle
+                  </p>
+                </div>
+              </div>
+
+              {/* Stat 4: Patent Published */}
+              <div className="flex flex-col justify-between pt-6 sm:pt-0 sm:px-4">
+                <div className="p-3 rounded-xl bg-[#EFF3EC] text-[#234E46] border border-[#D8E0D5] w-fit mb-4">
+                  <Award className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-serif text-2xl sm:text-3xl font-medium text-[#234E46] mb-1">
+                    Patent Published
+                  </div>
+                  <div className="text-sm font-semibold text-[#19221E]">
+                    SafeOpen
+                  </div>
+                  <p className="text-xs text-[#576560] mt-1 leading-relaxed">
+                    Intelligent Vehicle Safety System
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </PageContainer>
+      </section>
+
+      {/* Technologies Section */}
+      <section>
+        <PageContainer>
+          <SectionHeading
+            label="Tech Stack"
+            title="Technologies I Work With"
+            subtitle="Core frameworks, programming languages, and tools utilized across full-stack & mobile development."
+          />
+
+          <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 md:p-10 border border-[#E6E1D7] shadow-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+              {technologyCategories.map((cat, idx) => (
+                <div
+                  key={cat.category}
+                  className={`space-y-2.5 pb-6 md:pb-0 border-b md:border-b-0 border-[#E6E1D7] last:border-b-0 last:pb-0 ${
+                    idx === technologyCategories.length - 1 && technologyCategories.length % 2 !== 0
+                      ? "md:col-span-2"
+                      : ""
+                  }`}
+                >
+                  <h3 className="font-serif text-lg font-semibold text-[#19221E] tracking-tight">
+                    {cat.category}
+                  </h3>
+                  <p className="text-base text-[#576560] leading-relaxed font-normal">
+                    {cat.items.join("  ·  ")}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </PageContainer>
+      </section>
     </div>
   );
 }
